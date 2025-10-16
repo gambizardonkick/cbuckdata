@@ -3,7 +3,7 @@ import fetch from "node-fetch";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const SELF_URL = "https://zomanexdata.onrender.com/leaderboard/top14";
+const SELF_URL = "https://cbuckdata.vercel.app/";
 const API_KEY = "soJ1UYDSNvsuLyGtNzTPpfEpAHVBHkur";
 
 let cachedData = [];
@@ -55,7 +55,6 @@ async function fetchAndCacheData() {
     );
 
     const top10 = sorted.slice(0, 10);
-    if (top10.length >= 2) [top10[0], top10[1]] = [top10[1], top10[0]];
 
     cachedData = top10.map(entry => ({
       username: maskUsername(entry.username),
